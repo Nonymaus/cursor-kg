@@ -1,0 +1,131 @@
+{
+    // Python Interpreter Configuration
+    "python.defaultInterpreterPath": "/Users/jared.boynton@postman.com/.pyenv/versions/3.12.10/bin/python",
+    
+    // Code Formatting with Black
+    "python.formatting.provider": "black",
+    "editor.formatOnSave": true,
+    "python.formatting.blackArgs": [
+        "--line-length",
+        "88"
+    ],
+    
+    // Linting Configuration
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
+    "python.linting.lintOnSave": true,
+    
+    // Type Checking with MyPy
+    "python.linting.mypyEnabled": true,
+    
+    // Ruff Configuration (modern linter/formatter)
+    "ruff.enable": true,
+    "ruff.organizeImports": true,
+    "ruff.fixAll": true,
+    
+    // Python Language Server Configuration
+    "python.languageServer": "Pylance",
+    "python.analysis.typeCheckingMode": "basic",
+    "python.analysis.autoImportCompletions": true,
+    "python.analysis.autoSearchPaths": true,
+    "python.analysis.diagnosticMode": "workspace",
+    
+    // Editor Configuration for Python
+    "editor.rulers": [88],
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false,
+    
+    // File Association
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit",
+            "source.fixAll": "explicit"
+        },
+        "editor.tabSize": 4
+    },
+    
+    // Testing Configuration
+    "python.testing.pytestEnabled": true,
+    "python.testing.unittestEnabled": false,
+    "python.testing.autoTestDiscoverOnSaveEnabled": true,
+    
+    // Debugging Configuration
+    "python.terminal.activateEnvironment": true,
+    "python.terminal.activateEnvInCurrentTerminal": true,
+    
+    // IntelliSense and Auto-completion
+    "python.analysis.completeFunctionParens": true,
+    "python.analysis.addImport.exactMatchOnly": false,
+    "python.analysis.importFormat": "relative",
+    
+    // Docstring Configuration
+    "python.docstring.format": "google",
+    "autoDocstring.docstringFormat": "google",
+    "autoDocstring.generateDocstringOnEnter": true,
+    
+    // General Editor Settings for Better Python Development
+    "editor.suggestSelection": "first",
+    "editor.quickSuggestions": {
+        "other": true,
+        "comments": false,
+        "strings": true
+    },
+    "editor.parameterHints.enabled": true,
+    "editor.hover.enabled": true,
+    "editor.lightBulb.enabled": true,
+    
+    // File Explorer Configuration
+    "files.exclude": {
+        "**/__pycache__": true,
+        "**/*.pyc": true,
+        "**/.pytest_cache": true,
+        "**/.mypy_cache": true,
+        "**/venv": true,
+        "**/.venv": true,
+        "**/env": true,
+        "**/.env": true
+    },
+    
+    // Search Configuration
+    "search.exclude": {
+        "**/__pycache__": true,
+        "**/*.pyc": true,
+        "**/.pytest_cache": true,
+        "**/.mypy_cache": true,
+        "**/venv": true,
+        "**/.venv": true,
+        "**/env": true,
+        "**/.env": true
+    },
+    
+    // Terminal Configuration
+    "terminal.integrated.env.osx": {
+        "PYTHONPATH": "${workspaceFolder}"
+    },
+    
+    // Git Configuration
+    "git.ignoreLimitWarning": true,
+    
+    // Jupyter Configuration
+    "jupyter.askForKernelRestart": false,
+    "jupyter.interactiveWindow.creationMode": "perFile",
+    
+    // Additional Python-specific settings
+    "python.analysis.extraPaths": [
+        "${workspaceFolder}/src"
+    ],
+    "python.envFile": "${workspaceFolder}/.env",
+    "python.terminal.executeInFileDir": false,
+    
+    // Code Navigation
+    "python.analysis.indexing": true,
+    "python.analysis.packageIndexDepths": [
+        {
+            "name": "",
+            "depth": 2
+        }
+    ]
+} 

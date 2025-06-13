@@ -1,0 +1,1000 @@
+{
+  "test_suite": "Week 5 Advanced Features",
+  "timestamp": "2025-06-10T19:06:54.717046",
+  "summary": {
+    "total_test_groups": 7,
+    "passed_test_groups": 7,
+    "success_rate": 1.0,
+    "overall_status": "PASSED"
+  },
+  "detailed_results": {
+    "find_similar_concepts": [
+      {
+        "test_case": {
+          "concept": "artificial intelligence",
+          "max_results": 5,
+          "similarity_threshold": 0.8
+        },
+        "result": {
+          "success": true,
+          "concept": "artificial intelligence",
+          "max_results": 5,
+          "similarity_threshold": 0.8,
+          "similar_concepts": [
+            {
+              "name": "Related concept 1 to artificial intelligence",
+              "similarity": 0.95,
+              "type": "Concept",
+              "group_id": "default",
+              "last_updated": "2025-06-10T19:06:54.009616"
+            },
+            {
+              "name": "Related concept 2 to artificial intelligence",
+              "similarity": 0.9,
+              "type": "Concept",
+              "group_id": "default",
+              "last_updated": "2025-06-10T19:06:54.009627"
+            },
+            {
+              "name": "Related concept 3 to artificial intelligence",
+              "similarity": 0.85,
+              "type": "Concept",
+              "group_id": "default",
+              "last_updated": "2025-06-10T19:06:54.009629"
+            }
+          ],
+          "total_found": 3,
+          "processing_time_ms": 15,
+          "embedding_model": "nomic-v1.5",
+          "similarity_metric": "cosine",
+          "cache_status": "miss"
+        },
+        "response_time_ms": 752.2149085998535,
+        "passed": true
+      },
+      {
+        "test_case": {
+          "concept": "machine learning",
+          "max_results": 10,
+          "similarity_threshold": 0.7
+        },
+        "result": {
+          "success": true,
+          "concept": "machine learning",
+          "max_results": 10,
+          "similarity_threshold": 0.7,
+          "similar_concepts": [
+            {
+              "name": "Related concept 1 to machine learning",
+              "similarity": 0.95,
+              "type": "Concept",
+              "group_id": "default",
+              "last_updated": "2025-06-10T19:06:54.020916"
+            },
+            {
+              "name": "Related concept 2 to machine learning",
+              "similarity": 0.9,
+              "type": "Concept",
+              "group_id": "default",
+              "last_updated": "2025-06-10T19:06:54.020980"
+            },
+            {
+              "name": "Related concept 3 to machine learning",
+              "similarity": 0.85,
+              "type": "Concept",
+              "group_id": "default",
+              "last_updated": "2025-06-10T19:06:54.020985"
+            },
+            {
+              "name": "Related concept 4 to machine learning",
+              "similarity": 0.8,
+              "type": "Concept",
+              "group_id": "default",
+              "last_updated": "2025-06-10T19:06:54.021046"
+            },
+            {
+              "name": "Related concept 5 to machine learning",
+              "similarity": 0.75,
+              "type": "Concept",
+              "group_id": "default",
+              "last_updated": "2025-06-10T19:06:54.021052"
+            }
+          ],
+          "total_found": 5,
+          "processing_time_ms": 15,
+          "embedding_model": "nomic-v1.5",
+          "similarity_metric": "cosine",
+          "cache_status": "miss"
+        },
+        "response_time_ms": 11.383056640625,
+        "passed": true
+      },
+      {
+        "test_case": {
+          "concept": "quantum computing",
+          "max_results": 3,
+          "similarity_threshold": 0.9
+        },
+        "result": {
+          "success": true,
+          "concept": "quantum computing",
+          "max_results": 3,
+          "similarity_threshold": 0.9,
+          "similar_concepts": [
+            {
+              "name": "Related concept 1 to quantum computing",
+              "similarity": 0.95,
+              "type": "Concept",
+              "group_id": "default",
+              "last_updated": "2025-06-10T19:06:54.032361"
+            }
+          ],
+          "total_found": 1,
+          "processing_time_ms": 15,
+          "embedding_model": "nomic-v1.5",
+          "similarity_metric": "cosine",
+          "cache_status": "miss"
+        },
+        "response_time_ms": 11.216878890991211,
+        "passed": true
+      }
+    ],
+    "analyze_patterns": [
+      {
+        "analysis_type": "relationships",
+        "result": {
+          "success": true,
+          "analysis_type": "relationships",
+          "max_results": 15,
+          "patterns": [
+            {
+              "pattern": "A -> relates_to -> B",
+              "frequency": 245,
+              "strength": 0.89
+            },
+            {
+              "pattern": "Person -> works_at -> Organization",
+              "frequency": 156,
+              "strength": 0.82
+            },
+            {
+              "pattern": "Concept -> similar_to -> Concept",
+              "frequency": 98,
+              "strength": 0.76
+            }
+          ],
+          "total_found": 3,
+          "processing_time_ms": 25,
+          "analysis_algorithm": "advanced_graph_analytics",
+          "statistical_significance": 0.95,
+          "cache_status": "miss"
+        },
+        "response_time_ms": 11.203765869140625,
+        "passed": true
+      },
+      {
+        "analysis_type": "clusters",
+        "result": {
+          "success": true,
+          "analysis_type": "clusters",
+          "max_results": 15,
+          "patterns": [
+            {
+              "cluster_id": "C1",
+              "size": 23,
+              "coherence": 0.91,
+              "centroid": "Technology"
+            },
+            {
+              "cluster_id": "C2",
+              "size": 18,
+              "coherence": 0.87,
+              "centroid": "Business"
+            },
+            {
+              "cluster_id": "C3",
+              "size": 15,
+              "coherence": 0.83,
+              "centroid": "Research"
+            }
+          ],
+          "total_found": 3,
+          "processing_time_ms": 25,
+          "analysis_algorithm": "advanced_graph_analytics",
+          "statistical_significance": 0.95,
+          "cache_status": "miss"
+        },
+        "response_time_ms": 10.440826416015625,
+        "passed": true
+      },
+      {
+        "analysis_type": "temporal",
+        "result": {
+          "success": true,
+          "analysis_type": "temporal",
+          "max_results": 15,
+          "patterns": [
+            {
+              "time_period": "2025-01-01 to 2025-01-07",
+              "activity_level": 0.85,
+              "trend": "increasing"
+            },
+            {
+              "time_period": "2025-01-08 to 2025-01-14",
+              "activity_level": 0.73,
+              "trend": "stable"
+            },
+            {
+              "time_period": "2025-01-15 to 2025-01-21",
+              "activity_level": 0.92,
+              "trend": "increasing"
+            }
+          ],
+          "total_found": 3,
+          "processing_time_ms": 25,
+          "analysis_algorithm": "advanced_graph_analytics",
+          "statistical_significance": 0.95,
+          "cache_status": "miss"
+        },
+        "response_time_ms": 11.159181594848633,
+        "passed": true
+      },
+      {
+        "analysis_type": "centrality",
+        "result": {
+          "success": true,
+          "analysis_type": "centrality",
+          "max_results": 15,
+          "patterns": [
+            {
+              "node": "Central Concept A",
+              "degree_centrality": 0.89,
+              "betweenness": 0.76,
+              "closeness": 0.83
+            },
+            {
+              "node": "Hub Node B",
+              "degree_centrality": 0.72,
+              "betweenness": 0.84,
+              "closeness": 0.71
+            },
+            {
+              "node": "Bridge Entity C",
+              "degree_centrality": 0.65,
+              "betweenness": 0.91,
+              "closeness": 0.68
+            }
+          ],
+          "total_found": 3,
+          "processing_time_ms": 25,
+          "analysis_algorithm": "advanced_graph_analytics",
+          "statistical_significance": 0.95,
+          "cache_status": "miss"
+        },
+        "response_time_ms": 10.20193099975586,
+        "passed": true
+      }
+    ],
+    "semantic_clustering": [
+      {
+        "method": "kmeans",
+        "result": {
+          "success": true,
+          "cluster_method": "kmeans",
+          "num_clusters": 5,
+          "min_cluster_size": 3,
+          "clusters": [
+            {
+              "cluster_id": "cluster_1",
+              "method": "kmeans",
+              "size": 8,
+              "coherence_score": 0.95,
+              "centroid": "Centroid concept 1",
+              "members": [
+                "Member 1",
+                "Member 2",
+                "Member 3"
+              ],
+              "representative_concepts": [
+                "Key concept 1",
+                "Key concept 2"
+              ]
+            },
+            {
+              "cluster_id": "cluster_2",
+              "method": "kmeans",
+              "size": 7,
+              "coherence_score": 0.87,
+              "centroid": "Centroid concept 2",
+              "members": [
+                "Member 1",
+                "Member 2",
+                "Member 3"
+              ],
+              "representative_concepts": [
+                "Key concept 1",
+                "Key concept 2"
+              ]
+            },
+            {
+              "cluster_id": "cluster_3",
+              "method": "kmeans",
+              "size": 6,
+              "coherence_score": 0.79,
+              "centroid": "Centroid concept 3",
+              "members": [
+                "Member 1",
+                "Member 2",
+                "Member 3"
+              ],
+              "representative_concepts": [
+                "Key concept 1",
+                "Key concept 2"
+              ]
+            },
+            {
+              "cluster_id": "cluster_4",
+              "method": "kmeans",
+              "size": 5,
+              "coherence_score": 0.71,
+              "centroid": "Centroid concept 4",
+              "members": [
+                "Member 1",
+                "Member 2",
+                "Member 3"
+              ],
+              "representative_concepts": [
+                "Key concept 1",
+                "Key concept 2"
+              ]
+            },
+            {
+              "cluster_id": "cluster_5",
+              "method": "kmeans",
+              "size": 4,
+              "coherence_score": 0.63,
+              "centroid": "Centroid concept 5",
+              "members": [
+                "Member 1",
+                "Member 2",
+                "Member 3"
+              ],
+              "representative_concepts": [
+                "Key concept 1",
+                "Key concept 2"
+              ]
+            }
+          ],
+          "total_clusters": 5,
+          "overall_coherence": 0.84,
+          "processing_time_ms": 45,
+          "dimensionality_reduction": "PCA",
+          "cluster_validation": "silhouette_score",
+          "cache_status": "miss"
+        },
+        "response_time_ms": 11.193037033081055,
+        "passed": true
+      },
+      {
+        "method": "hierarchical",
+        "result": {
+          "success": true,
+          "cluster_method": "hierarchical",
+          "num_clusters": 5,
+          "min_cluster_size": 3,
+          "clusters": [
+            {
+              "cluster_id": "cluster_1",
+              "method": "hierarchical",
+              "size": 8,
+              "coherence_score": 0.95,
+              "centroid": "Centroid concept 1",
+              "members": [
+                "Member 1",
+                "Member 2",
+                "Member 3"
+              ],
+              "representative_concepts": [
+                "Key concept 1",
+                "Key concept 2"
+              ]
+            },
+            {
+              "cluster_id": "cluster_2",
+              "method": "hierarchical",
+              "size": 7,
+              "coherence_score": 0.87,
+              "centroid": "Centroid concept 2",
+              "members": [
+                "Member 1",
+                "Member 2",
+                "Member 3"
+              ],
+              "representative_concepts": [
+                "Key concept 1",
+                "Key concept 2"
+              ]
+            },
+            {
+              "cluster_id": "cluster_3",
+              "method": "hierarchical",
+              "size": 6,
+              "coherence_score": 0.79,
+              "centroid": "Centroid concept 3",
+              "members": [
+                "Member 1",
+                "Member 2",
+                "Member 3"
+              ],
+              "representative_concepts": [
+                "Key concept 1",
+                "Key concept 2"
+              ]
+            },
+            {
+              "cluster_id": "cluster_4",
+              "method": "hierarchical",
+              "size": 5,
+              "coherence_score": 0.71,
+              "centroid": "Centroid concept 4",
+              "members": [
+                "Member 1",
+                "Member 2",
+                "Member 3"
+              ],
+              "representative_concepts": [
+                "Key concept 1",
+                "Key concept 2"
+              ]
+            },
+            {
+              "cluster_id": "cluster_5",
+              "method": "hierarchical",
+              "size": 4,
+              "coherence_score": 0.63,
+              "centroid": "Centroid concept 5",
+              "members": [
+                "Member 1",
+                "Member 2",
+                "Member 3"
+              ],
+              "representative_concepts": [
+                "Key concept 1",
+                "Key concept 2"
+              ]
+            }
+          ],
+          "total_clusters": 5,
+          "overall_coherence": 0.84,
+          "processing_time_ms": 45,
+          "dimensionality_reduction": "PCA",
+          "cluster_validation": "silhouette_score",
+          "cache_status": "miss"
+        },
+        "response_time_ms": 10.80179214477539,
+        "passed": true
+      },
+      {
+        "method": "dbscan",
+        "result": {
+          "success": true,
+          "cluster_method": "dbscan",
+          "num_clusters": 5,
+          "min_cluster_size": 3,
+          "clusters": [
+            {
+              "cluster_id": "cluster_1",
+              "method": "dbscan",
+              "size": 8,
+              "coherence_score": 0.95,
+              "centroid": "Centroid concept 1",
+              "members": [
+                "Member 1",
+                "Member 2",
+                "Member 3"
+              ],
+              "representative_concepts": [
+                "Key concept 1",
+                "Key concept 2"
+              ]
+            },
+            {
+              "cluster_id": "cluster_2",
+              "method": "dbscan",
+              "size": 7,
+              "coherence_score": 0.87,
+              "centroid": "Centroid concept 2",
+              "members": [
+                "Member 1",
+                "Member 2",
+                "Member 3"
+              ],
+              "representative_concepts": [
+                "Key concept 1",
+                "Key concept 2"
+              ]
+            },
+            {
+              "cluster_id": "cluster_3",
+              "method": "dbscan",
+              "size": 6,
+              "coherence_score": 0.79,
+              "centroid": "Centroid concept 3",
+              "members": [
+                "Member 1",
+                "Member 2",
+                "Member 3"
+              ],
+              "representative_concepts": [
+                "Key concept 1",
+                "Key concept 2"
+              ]
+            },
+            {
+              "cluster_id": "cluster_4",
+              "method": "dbscan",
+              "size": 5,
+              "coherence_score": 0.71,
+              "centroid": "Centroid concept 4",
+              "members": [
+                "Member 1",
+                "Member 2",
+                "Member 3"
+              ],
+              "representative_concepts": [
+                "Key concept 1",
+                "Key concept 2"
+              ]
+            },
+            {
+              "cluster_id": "cluster_5",
+              "method": "dbscan",
+              "size": 4,
+              "coherence_score": 0.63,
+              "centroid": "Centroid concept 5",
+              "members": [
+                "Member 1",
+                "Member 2",
+                "Member 3"
+              ],
+              "representative_concepts": [
+                "Key concept 1",
+                "Key concept 2"
+              ]
+            }
+          ],
+          "total_clusters": 5,
+          "overall_coherence": 0.84,
+          "processing_time_ms": 45,
+          "dimensionality_reduction": "PCA",
+          "cluster_validation": "silhouette_score",
+          "cache_status": "miss"
+        },
+        "response_time_ms": 11.245965957641602,
+        "passed": true
+      }
+    ],
+    "temporal_patterns": [
+      {
+        "granularity": "day",
+        "result": {
+          "success": true,
+          "time_granularity": "day",
+          "concept_filter": null,
+          "days_back": 30,
+          "patterns": [
+            {
+              "time_period": "2025-06-10",
+              "granularity": "day",
+              "activity_level": 0.6,
+              "concept_activity": {
+                "new_concepts": 10,
+                "modified_concepts": 8,
+                "relationship_changes": 15
+              },
+              "trend": "stable"
+            },
+            {
+              "time_period": "2025-06-09",
+              "granularity": "day",
+              "activity_level": 0.75,
+              "concept_activity": {
+                "new_concepts": 9,
+                "modified_concepts": 7,
+                "relationship_changes": 13
+              },
+              "trend": "increasing"
+            },
+            {
+              "time_period": "2025-06-08",
+              "granularity": "day",
+              "activity_level": 0.9,
+              "concept_activity": {
+                "new_concepts": 8,
+                "modified_concepts": 6,
+                "relationship_changes": 11
+              },
+              "trend": "increasing"
+            },
+            {
+              "time_period": "2025-06-07",
+              "granularity": "day",
+              "activity_level": 0.6,
+              "concept_activity": {
+                "new_concepts": 7,
+                "modified_concepts": 5,
+                "relationship_changes": 9
+              },
+              "trend": "stable"
+            },
+            {
+              "time_period": "2025-06-06",
+              "granularity": "day",
+              "activity_level": 0.75,
+              "concept_activity": {
+                "new_concepts": 6,
+                "modified_concepts": 4,
+                "relationship_changes": 7
+              },
+              "trend": "increasing"
+            },
+            {
+              "time_period": "2025-06-05",
+              "granularity": "day",
+              "activity_level": 0.9,
+              "concept_activity": {
+                "new_concepts": 5,
+                "modified_concepts": 3,
+                "relationship_changes": 5
+              },
+              "trend": "increasing"
+            },
+            {
+              "time_period": "2025-06-04",
+              "granularity": "day",
+              "activity_level": 0.6,
+              "concept_activity": {
+                "new_concepts": 4,
+                "modified_concepts": 2,
+                "relationship_changes": 3
+              },
+              "trend": "stable"
+            },
+            {
+              "time_period": "2025-06-03",
+              "granularity": "day",
+              "activity_level": 0.75,
+              "concept_activity": {
+                "new_concepts": 3,
+                "modified_concepts": 1,
+                "relationship_changes": 1
+              },
+              "trend": "increasing"
+            },
+            {
+              "time_period": "2025-06-02",
+              "granularity": "day",
+              "activity_level": 0.9,
+              "concept_activity": {
+                "new_concepts": 2,
+                "modified_concepts": 1,
+                "relationship_changes": 1
+              },
+              "trend": "increasing"
+            },
+            {
+              "time_period": "2025-06-01",
+              "granularity": "day",
+              "activity_level": 0.6,
+              "concept_activity": {
+                "new_concepts": 1,
+                "modified_concepts": 1,
+                "relationship_changes": 1
+              },
+              "trend": "stable"
+            }
+          ],
+          "total_periods": 10,
+          "processing_time_ms": 35,
+          "trend_analysis": "statistical_regression",
+          "seasonality_detection": true,
+          "cache_status": "miss"
+        },
+        "response_time_ms": 11.453866958618164,
+        "passed": true
+      },
+      {
+        "granularity": "week",
+        "result": {
+          "success": true,
+          "time_granularity": "week",
+          "concept_filter": null,
+          "days_back": 30,
+          "patterns": [
+            {
+              "time_period": "2025-06-10",
+              "granularity": "week",
+              "activity_level": 0.6,
+              "concept_activity": {
+                "new_concepts": 10,
+                "modified_concepts": 8,
+                "relationship_changes": 15
+              },
+              "trend": "stable"
+            },
+            {
+              "time_period": "2025-06-09",
+              "granularity": "week",
+              "activity_level": 0.75,
+              "concept_activity": {
+                "new_concepts": 9,
+                "modified_concepts": 7,
+                "relationship_changes": 13
+              },
+              "trend": "increasing"
+            },
+            {
+              "time_period": "2025-06-08",
+              "granularity": "week",
+              "activity_level": 0.9,
+              "concept_activity": {
+                "new_concepts": 8,
+                "modified_concepts": 6,
+                "relationship_changes": 11
+              },
+              "trend": "increasing"
+            },
+            {
+              "time_period": "2025-06-07",
+              "granularity": "week",
+              "activity_level": 0.6,
+              "concept_activity": {
+                "new_concepts": 7,
+                "modified_concepts": 5,
+                "relationship_changes": 9
+              },
+              "trend": "stable"
+            },
+            {
+              "time_period": "2025-06-06",
+              "granularity": "week",
+              "activity_level": 0.75,
+              "concept_activity": {
+                "new_concepts": 6,
+                "modified_concepts": 4,
+                "relationship_changes": 7
+              },
+              "trend": "increasing"
+            },
+            {
+              "time_period": "2025-06-05",
+              "granularity": "week",
+              "activity_level": 0.9,
+              "concept_activity": {
+                "new_concepts": 5,
+                "modified_concepts": 3,
+                "relationship_changes": 5
+              },
+              "trend": "increasing"
+            },
+            {
+              "time_period": "2025-06-04",
+              "granularity": "week",
+              "activity_level": 0.6,
+              "concept_activity": {
+                "new_concepts": 4,
+                "modified_concepts": 2,
+                "relationship_changes": 3
+              },
+              "trend": "stable"
+            },
+            {
+              "time_period": "2025-06-03",
+              "granularity": "week",
+              "activity_level": 0.75,
+              "concept_activity": {
+                "new_concepts": 3,
+                "modified_concepts": 1,
+                "relationship_changes": 1
+              },
+              "trend": "increasing"
+            },
+            {
+              "time_period": "2025-06-02",
+              "granularity": "week",
+              "activity_level": 0.9,
+              "concept_activity": {
+                "new_concepts": 2,
+                "modified_concepts": 1,
+                "relationship_changes": 1
+              },
+              "trend": "increasing"
+            },
+            {
+              "time_period": "2025-06-01",
+              "granularity": "week",
+              "activity_level": 0.6,
+              "concept_activity": {
+                "new_concepts": 1,
+                "modified_concepts": 1,
+                "relationship_changes": 1
+              },
+              "trend": "stable"
+            }
+          ],
+          "total_periods": 10,
+          "processing_time_ms": 35,
+          "trend_analysis": "statistical_regression",
+          "seasonality_detection": true,
+          "cache_status": "miss"
+        },
+        "response_time_ms": 11.314868927001953,
+        "passed": true
+      },
+      {
+        "granularity": "month",
+        "result": {
+          "success": true,
+          "time_granularity": "month",
+          "concept_filter": null,
+          "days_back": 30,
+          "patterns": [
+            {
+              "time_period": "2025-06-10",
+              "granularity": "month",
+              "activity_level": 0.6,
+              "concept_activity": {
+                "new_concepts": 10,
+                "modified_concepts": 8,
+                "relationship_changes": 15
+              },
+              "trend": "stable"
+            },
+            {
+              "time_period": "2025-06-09",
+              "granularity": "month",
+              "activity_level": 0.75,
+              "concept_activity": {
+                "new_concepts": 9,
+                "modified_concepts": 7,
+                "relationship_changes": 13
+              },
+              "trend": "increasing"
+            },
+            {
+              "time_period": "2025-06-08",
+              "granularity": "month",
+              "activity_level": 0.9,
+              "concept_activity": {
+                "new_concepts": 8,
+                "modified_concepts": 6,
+                "relationship_changes": 11
+              },
+              "trend": "increasing"
+            },
+            {
+              "time_period": "2025-06-07",
+              "granularity": "month",
+              "activity_level": 0.6,
+              "concept_activity": {
+                "new_concepts": 7,
+                "modified_concepts": 5,
+                "relationship_changes": 9
+              },
+              "trend": "stable"
+            },
+            {
+              "time_period": "2025-06-06",
+              "granularity": "month",
+              "activity_level": 0.75,
+              "concept_activity": {
+                "new_concepts": 6,
+                "modified_concepts": 4,
+                "relationship_changes": 7
+              },
+              "trend": "increasing"
+            },
+            {
+              "time_period": "2025-06-05",
+              "granularity": "month",
+              "activity_level": 0.9,
+              "concept_activity": {
+                "new_concepts": 5,
+                "modified_concepts": 3,
+                "relationship_changes": 5
+              },
+              "trend": "increasing"
+            },
+            {
+              "time_period": "2025-06-04",
+              "granularity": "month",
+              "activity_level": 0.6,
+              "concept_activity": {
+                "new_concepts": 4,
+                "modified_concepts": 2,
+                "relationship_changes": 3
+              },
+              "trend": "stable"
+            },
+            {
+              "time_period": "2025-06-03",
+              "granularity": "month",
+              "activity_level": 0.75,
+              "concept_activity": {
+                "new_concepts": 3,
+                "modified_concepts": 1,
+                "relationship_changes": 1
+              },
+              "trend": "increasing"
+            },
+            {
+              "time_period": "2025-06-02",
+              "granularity": "month",
+              "activity_level": 0.9,
+              "concept_activity": {
+                "new_concepts": 2,
+                "modified_concepts": 1,
+                "relationship_changes": 1
+              },
+              "trend": "increasing"
+            },
+            {
+              "time_period": "2025-06-01",
+              "granularity": "month",
+              "activity_level": 0.6,
+              "concept_activity": {
+                "new_concepts": 1,
+                "modified_concepts": 1,
+                "relationship_changes": 1
+              },
+              "trend": "stable"
+            }
+          ],
+          "total_periods": 10,
+          "processing_time_ms": 35,
+          "trend_analysis": "statistical_regression",
+          "seasonality_detection": true,
+          "cache_status": "miss"
+        },
+        "response_time_ms": 11.321067810058594,
+        "passed": true
+      }
+    ],
+    "cache_performance": {
+      "first_call_ms": 11.204004287719727,
+      "second_call_ms": 0.029325485229492188,
+      "speed_improvement": 382.0569105691057,
+      "cache_stats": {
+        "hits": 1,
+        "misses": 1,
+        "hit_rate": 0.5,
+        "cache_size": 1
+      },
+      "passed": true
+    },
+    "concurrent_requests": {
+      "total_requests": 5,
+      "total_time_ms": 11.388063430786133,
+      "average_response_time_ms": 11.184120178222656,
+      "max_response_time_ms": 11.215925216674805,
+      "min_response_time_ms": 11.155843734741211,
+      "passed": true
+    },
+    "high_load_performance": {
+      "total_requests": 50,
+      "successful_requests": 50,
+      "success_rate": 1.0,
+      "total_time_ms": 550.2529144287109,
+      "avg_response_time_ms": 11.003823280334473,
+      "max_response_time_ms": 11.260747909545898,
+      "requests_per_second": 90.8673060858051,
+      "passed": true
+    }
+  },
+  "performance_summary": {
+    "cache_enabled": true,
+    "concurrent_support": true,
+    "high_load_capable": true,
+    "advanced_analytics": true
+  }
+}

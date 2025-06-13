@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cargo build:*)",
+      "Bash(RUST_LOG=info cargo run --release)",
+      "Bash(RUST_LOG=info cargo run --release --bin kg-mcp-server)",
+      "Bash(find:*)",
+      "WebFetch(domain:docs.anthropic.com)"
+    ],
+    "deny": []
+  }
+}

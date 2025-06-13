@@ -1,0 +1,9 @@
+{
+    "mcpServers": {
+        "kg-mcp-server": {
+            "command": "/Users/jared.boynton@postman.com/cursor-kg/target/release/kg-mcp-server",
+            "args": [],
+            "timeout": 60
+        }
+    }
+}

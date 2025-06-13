@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  kg-mcp-server:
+    build: .
+    ports:
+      - "8360:8360"
+    environment:
+      - MCP_TRANSPORT=sse
+      - MCP_PORT=8360
+      - RUST_LOG=info
+    volumes:
+      - kg_data:/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8360/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+volumes:
+  kg_data:

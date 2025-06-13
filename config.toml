@@ -1,0 +1,196 @@
+# Knowledge Graph MCP Server Configuration
+# Comprehensive configuration for security, stability, large codebases, and hallucination prevention
+# Version: 2.0 - Consolidated and enhanced configuration
+
+# Security Configuration
+[security]
+# Authentication settings
+enable_authentication = false  # Set to true to enable API key authentication
+api_key = ""  # Set your API key here when authentication is enabled
+admin_operations_require_auth = true  # Require auth for admin operations even when auth is disabled
+
+# Rate limiting
+rate_limit_requests_per_minute = 60
+rate_limit_burst = 10
+
+# Input validation
+max_content_length = 1048576  # 1MB max content length
+max_query_length = 1024
+max_path_length = 4096
+max_array_size = 1000
+
+# Data encryption (future feature)
+enable_encryption = false
+encryption_key_file = ""
+
+[database]
+filename = "knowledge_graph.db"
+connection_pool_size = 8
+enable_wal = true
+cache_size_kb = 32768  # 32MB
+backup_enabled = true
+backup_interval_hours = 24
+
+[embeddings]
+model_name = "nomic-embed-text-v1.5"
+model_size = "medium"
+dimensions = 768
+batch_size = 16
+cache_size = 500
+warmup_enabled = true
+# onnx_threads = 4
+
+[search]
+max_results = 10
+similarity_threshold = 0.7
+enable_hybrid_search = true
+text_search_weight = 0.3
+vector_search_weight = 0.7
+enable_reranking = true
+
+[memory]
+max_episodes_per_group = 5000
+episode_retention_days = 365
+auto_cleanup_enabled = true
+compression_enabled = false
+max_cache_size_mb = 128
+gc_threshold = 0.7
+preload_enabled = false
+
+# Circuit breaker configuration for stability
+[stability.circuit_breaker]
+failure_threshold = 5
+recovery_timeout_seconds = 60
+success_threshold = 3
+timeout_seconds = 30
+
+[stability.retry]
+max_retries = 3
+base_delay_ms = 100
+max_delay_ms = 5000
+exponential_backoff = true
+
+# Context window management for large codebases
+[context.window]
+max_tokens = 128000  # Large context window
+overlap_tokens = 200
+priority_boost = 1.5
+recency_weight = 0.3
+relevance_threshold = 0.7
+max_chunks_per_file = 50
+adaptive_chunking = true
+preserve_code_blocks = true
+
+# Hallucination detection and validation
+[validation.hallucination]
+confidence_threshold = 0.7
+fact_verification_enabled = true
+cross_reference_threshold = 0.8
+temporal_consistency_check = true
+source_credibility_weight = 0.3
+contradiction_detection = true
+uncertainty_quantification = true
+
+[validation.fact_checking]
+enable_external_verification = false
+trusted_sources = ["documentation", "primary_source"]
+confidence_decay_days = 90
+
+# Codebase indexing configuration
+[indexing.codebase]
+max_file_size_mb = 10
+max_depth = 20
+parallel_workers = 8
+chunk_size = 1000
+incremental_indexing = true
+generate_embeddings = true
+
+[indexing.extraction]
+extract_dependencies = true
+extract_functions = true
+extract_classes = true
+extract_imports = true
+extract_comments = true
+extract_documentation = true
+
+[indexing.supported_languages]
+source_extensions = [
+    "rs", "py", "js", "ts", "java", "cpp", "c", "h", "hpp",
+    "go", "rb", "php", "cs", "swift", "kt", "scala", "clj"
+]
+doc_extensions = ["md", "txt", "rst", "adoc"]
+config_extensions = ["json", "yaml", "yml", "toml", "xml", "ini"]
+
+[indexing.ignore_patterns]
+directories = [
+    "target/", "node_modules/", ".git/", "build/", "dist/",
+    "__pycache__/", ".pytest_cache/", "coverage/", ".coverage"
+]
+files = ["*.log", "*.tmp", "*.cache", "*.lock"]
+
+# Performance monitoring
+[monitoring]
+enable_metrics = true
+metrics_interval_seconds = 60
+log_slow_queries = true
+slow_query_threshold_ms = 1000
+
+[monitoring.health_checks]
+database_check_interval = 300  # 5 minutes
+memory_check_interval = 60     # 1 minute
+circuit_breaker_check_interval = 30  # 30 seconds
+
+# Extreme detail mode configuration
+[detail_mode]
+enabled = false  # Enable for maximum detail extraction
+max_entity_extraction_depth = 5
+enable_fine_grained_relationships = true
+extract_code_semantics = true
+analyze_control_flow = true
+extract_data_flow = true
+generate_detailed_summaries = true
+
+[detail_mode.nlp]
+enable_advanced_ner = true
+enable_coreference_resolution = true
+enable_sentiment_analysis = true
+enable_topic_modeling = true
+extract_technical_terms = true
+
+[detail_mode.code_analysis]
+extract_function_signatures = true
+analyze_complexity_metrics = true
+detect_code_patterns = true
+extract_api_usage = true
+analyze_error_handling = true
+
+# Cursor agent mode optimizations
+[cursor_agent]
+context_window_optimization = true
+intelligent_chunking = true
+priority_based_selection = true
+adaptive_token_management = true
+preserve_code_structure = true
+
+[cursor_agent.response_optimization]
+max_response_tokens = 4000
+preserve_formatting = true
+include_line_numbers = true
+highlight_important_sections = true
+
+# Logging configuration
+[logging]
+level = "info"
+file_logging = true
+log_file = "kg_server.log"
+max_log_size_mb = 100
+log_rotation_count = 5
+
+[logging.components]
+database = "info"
+embeddings = "info"
+search = "info"
+memory = "debug"
+stability = "info"
+validation = "info"
+indexing = "info" 

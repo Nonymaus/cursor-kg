@@ -1,0 +1,889 @@
+{
+  "latency_benchmarks": {
+    "find_similar_concepts": {
+      "tool": "find_similar_concepts",
+      "iterations": 50,
+      "success_rate": 1.0,
+      "latency_stats": {
+        "average_ms": 0.6952732606441714,
+        "median_ms": 0.015083503967616707,
+        "p95_ms": 6.189262345287684,
+        "p99_ms": 11.331025093822973,
+        "min_ms": 0.011208001524209976,
+        "max_ms": 11.386375001166016,
+        "std_dev_ms": 2.700550228223843
+      },
+      "performance_targets": {
+        "target_latency_ms": 100,
+        "max_allowed_latency_ms": 500,
+        "meets_target": true,
+        "meets_max_requirement": true
+      },
+      "raw_latencies": [
+        11.386375001166016,
+        11.169374993187375,
+        11.273416006588377,
+        0.028208000003360212,
+        0.0804169976618141,
+        0.040875005652196705,
+        0.021625004592351615,
+        0.01766601053532213,
+        0.01333300315309316,
+        0.015582991181872785,
+        0.016332996892742813,
+        0.032666008337400854,
+        0.017166006728075445,
+        0.015416997484862804,
+        0.10245799785479903,
+        0.04208300379104912,
+        0.02066700835712254,
+        0.014332996215671301,
+        0.017291997210122645,
+        0.01637499372009188,
+        0.013459008187055588,
+        0.01575000351294875,
+        0.016292004147544503,
+        0.012750009773299098,
+        0.015500001609325409,
+        0.014999997802078724,
+        0.013249999028630555,
+        0.014874996850267053,
+        0.015291996533051133,
+        0.0118750031106174,
+        0.015084006008692086,
+        0.015375000657513738,
+        0.011625001206994057,
+        0.014666991773992777,
+        0.015666999388486147,
+        0.012125005014240742,
+        0.014958000974729657,
+        0.014749995898455381,
+        0.01200000406242907,
+        0.014416000340133905,
+        0.014457997167482972,
+        0.011208001524209976,
+        0.014958000974729657,
+        0.014958000974729657,
+        0.011625001206994057,
+        0.014416989870369434,
+        0.015083001926541328,
+        0.011707990779541433,
+        0.014374993043020368,
+        0.014500008546747267
+      ],
+      "errors": []
+    },
+    "analyze_patterns": {
+      "tool": "analyze_patterns",
+      "iterations": 50,
+      "success_rate": 1.0,
+      "latency_stats": {
+        "average_ms": 0.951575860963203,
+        "median_ms": 0.010979500075336546,
+        "p95_ms": 11.066026894695824,
+        "p99_ms": 12.450937666872049,
+        "min_ms": 0.009583003702573478,
+        "max_ms": 12.939916996401735,
+        "std_dev_ms": 3.2240898985027426
+      },
+      "performance_targets": {
+        "target_latency_ms": 200,
+        "max_allowed_latency_ms": 1000,
+        "meets_target": true,
+        "meets_max_requirement": true
+      },
+      "raw_latencies": [
+        11.141832990688272,
+        10.973374999593943,
+        11.941999997361563,
+        12.939916996401735,
+        0.0195419997908175,
+        0.01445900124963373,
+        0.012541000614874065,
+        0.014000004739500582,
+        0.011625001206994057,
+        0.011416996130719781,
+        0.01083400275092572,
+        0.012458011042326689,
+        0.010667004971764982,
+        0.011084004654549062,
+        0.01041698851622641,
+        0.011791009455919266,
+        0.010957999620586634,
+        0.010584000847302377,
+        0.010375006240792572,
+        0.01158300437964499,
+        0.010458999895490706,
+        0.010375006240792572,
+        0.009750001481734216,
+        0.0109999964479357,
+        0.010624993592500687,
+        0.010207993909716606,
+        0.009791998309083283,
+        0.011167008779011667,
+        0.01029099803417921,
+        0.00999998883344233,
+        0.009957992006093264,
+        0.01070801226887852,
+        0.009958006558008492,
+        0.009832991054281592,
+        0.010000003385357559,
+        0.010917006875388324,
+        0.009875002433545887,
+        0.009791998309083283,
+        0.009583003702573478,
+        0.05687499651685357,
+        0.023208005586639047,
+        0.014417004422284663,
+        0.012791992048732936,
+        0.013416996807791293,
+        0.011666008504107594,
+        0.011708005331456661,
+        0.010959003702737391,
+        0.0118750031106174,
+        0.010792005923576653,
+        0.015333003830164671
+      ],
+      "errors": []
+    },
+    "get_semantic_clusters": {
+      "tool": "get_semantic_clusters",
+      "iterations": 50,
+      "success_rate": 1.0,
+      "latency_stats": {
+        "average_ms": 0.6891107809497043,
+        "median_ms": 0.019270999473519623,
+        "p95_ms": 5.799495650717261,
+        "p99_ms": 11.405082739656791,
+        "min_ms": 0.016667007002979517,
+        "max_ms": 11.593916002311744,
+        "std_dev_ms": 2.6554047419641575
+      },
+      "performance_targets": {
+        "target_latency_ms": 500,
+        "max_allowed_latency_ms": 2000,
+        "meets_target": true,
+        "meets_max_requirement": true
+      },
+      "raw_latencies": [
+        11.593916002311744,
+        11.208541996893473,
+        10.447583001223393,
+        0.0634580064797774,
+        0.024708002456463873,
+        0.0585000088904053,
+        0.032083000405691564,
+        0.021209008991718292,
+        0.02112500078510493,
+        0.020082996343262494,
+        0.018042002920992672,
+        0.019500002963468432,
+        0.019291997887194157,
+        0.017250000382773578,
+        0.01983299443963915,
+        0.019333994714543223,
+        0.017165992176160216,
+        0.018916995031759143,
+        0.019457991584204137,
+        0.01691699435468763,
+        0.01983299443963915,
+        0.01925000105984509,
+        0.01733399403747171,
+        0.018916005501523614,
+        0.01912500010803342,
+        0.01675001112744212,
+        0.019291997887194157,
+        0.019083003280684352,
+        0.016916004824452102,
+        0.018790989997796714,
+        0.019625003915280104,
+        0.016874997527338564,
+        0.019041006453335285,
+        0.01908400736283511,
+        0.017041005776263773,
+        0.01883300137706101,
+        0.019166996935382485,
+        0.016667007002979517,
+        0.019208004232496023,
+        0.019000013708136976,
+        0.016707999748177826,
+        0.11850000009872019,
+        0.07862500206101686,
+        0.07179200474638492,
+        0.025250003091059625,
+        0.0219999928958714,
+        0.018874998204410076,
+        0.02012500772252679,
+        0.019625003915280104,
+        0.017291997210122645
+      ],
+      "errors": []
+    },
+    "get_temporal_patterns": {
+      "tool": "get_temporal_patterns",
+      "iterations": 50,
+      "success_rate": 1.0,
+      "latency_stats": {
+        "average_ms": 0.7095725415274501,
+        "median_ms": 0.02854100603144616,
+        "p95_ms": 5.697440251969936,
+        "p99_ms": 11.905958580755392,
+        "min_ms": 0.028208000003360212,
+        "max_ms": 12.517458002548665,
+        "std_dev_ms": 2.7299606996948493
+      },
+      "performance_targets": {
+        "target_latency_ms": 300,
+        "max_allowed_latency_ms": 1500,
+        "meets_target": true,
+        "meets_max_requirement": true
+      },
+      "raw_latencies": [
+        10.326083996915258,
+        11.269499998888932,
+        12.517458002548665,
+        0.04020900814794004,
+        0.03287500294391066,
+        0.0305419962387532,
+        0.029833012376911938,
+        0.029458009521476924,
+        0.029167000320740044,
+        0.028834008844569325,
+        0.028458001906983554,
+        0.028708003810606897,
+        0.02849999873433262,
+        0.02837499778252095,
+        0.028624999686144292,
+        0.028417009161785245,
+        0.028542010113596916,
+        0.028458001906983554,
+        0.02837499778252095,
+        0.028416005079634488,
+        0.02849999873433262,
+        0.028416994609870017,
+        0.028208000003360212,
+        0.028417009161785245,
+        0.02854100603144616,
+        0.02837499778252095,
+        0.028624999686144292,
+        0.02849999873433262,
+        0.028582988306879997,
+        0.028416005079634488,
+        0.028292008209973574,
+        0.028583992389030755,
+        0.028250011382624507,
+        0.02849999873433262,
+        0.028583992389030755,
+        0.0329999893438071,
+        0.030042006983421743,
+        0.028541995561681688,
+        0.028542010113596916,
+        0.02833400503732264,
+        0.02849999873433262,
+        0.02854100603144616,
+        0.028416005079634488,
+        0.02833400503732264,
+        0.02837499778252095,
+        0.02824999683070928,
+        0.028541995561681688,
+        0.02866699651349336,
+        0.028583002858795226,
+        0.028333000955171883
+      ],
+      "errors": []
+    }
+  },
+  "throughput_benchmarks": {
+    "find_similar_concepts": {
+      "tool": "find_similar_concepts",
+      "test_duration_seconds": 30.000017916987417,
+      "requests_completed": 1926983,
+      "requests_per_second": 64232.72830476717,
+      "average_latency_ms": 0.014784034553833947,
+      "error_rate": 0.0,
+      "target_rps": 20,
+      "meets_throughput_target": true
+    },
+    "analyze_patterns": {
+      "tool": "analyze_patterns",
+      "test_duration_seconds": 30.00001954199979,
+      "requests_completed": 2947969,
+      "requests_per_second": 98265.56932314216,
+      "average_latency_ms": 0.009561452874375712,
+      "error_rate": 0.0,
+      "target_rps": 10,
+      "meets_throughput_target": true
+    },
+    "get_semantic_clusters": {
+      "tool": "get_semantic_clusters",
+      "test_duration_seconds": 30.000013875003788,
+      "requests_completed": 1392776,
+      "requests_per_second": 46425.8451947074,
+      "average_latency_ms": 0.020448852219003985,
+      "error_rate": 0.0,
+      "target_rps": 5,
+      "meets_throughput_target": true
+    },
+    "get_temporal_patterns": {
+      "tool": "get_temporal_patterns",
+      "test_duration_seconds": 30.000012458011042,
+      "requests_completed": 942639,
+      "requests_per_second": 31421.28695177534,
+      "average_latency_ms": 0.030712580756477714,
+      "error_rate": 0.0,
+      "target_rps": 8,
+      "meets_throughput_target": true
+    }
+  },
+  "cache_benchmark": {
+    "cache_miss_latency_ms": 11.410929300473072,
+    "cache_hit_latency_ms": 0.016858299204614013,
+    "speed_improvement": 676.8731033881502,
+    "cache_statistics": {
+      "hits": 21,
+      "misses": 1,
+      "hit_rate": 0.9545454545454546,
+      "cache_size": 1
+    },
+    "targets": {
+      "target_hit_rate": 0.8,
+      "actual_hit_rate": 0.9545454545454546,
+      "meets_hit_rate_target": true,
+      "target_speed_improvement": 5.0,
+      "meets_speed_improvement": true
+    }
+  },
+  "concurrent_benchmarks": {
+    "find_similar_concepts": {
+      "tool": "find_similar_concepts",
+      "concurrent_users": 5,
+      "requests_per_user": 3,
+      "total_requests": 15,
+      "total_duration_seconds": 0.011215624996111728,
+      "success_rate": 1.0,
+      "requests_per_second": 1337.4198945845865,
+      "latency_stats": {
+        "average_ms": 3.5854918018837147,
+        "p95_ms": 10.796304511313792,
+        "min_ms": 0.01445900124963373,
+        "max_ms": 10.864292009500787
+      },
+      "detailed_results": [
+        {
+          "user_id": 0,
+          "request_id": 0,
+          "latency_ms": 10.616875006235205,
+          "success": true,
+          "timestamp": 114748.267155166
+        },
+        {
+          "user_id": 0,
+          "request_id": 1,
+          "latency_ms": 0.021083003957755864,
+          "success": true,
+          "timestamp": 114748.267179166
+        },
+        {
+          "user_id": 0,
+          "request_id": 2,
+          "latency_ms": 0.015583995264023542,
+          "success": true,
+          "timestamp": 114748.267195833
+        },
+        {
+          "user_id": 1,
+          "request_id": 0,
+          "latency_ms": 10.660083004040644,
+          "success": true,
+          "timestamp": 114748.267230583
+        },
+        {
+          "user_id": 1,
+          "request_id": 1,
+          "latency_ms": 0.015332989278249443,
+          "success": true,
+          "timestamp": 114748.267247
+        },
+        {
+          "user_id": 1,
+          "request_id": 2,
+          "latency_ms": 0.014541990822181106,
+          "success": true,
+          "timestamp": 114748.2672625
+        },
+        {
+          "user_id": 2,
+          "request_id": 0,
+          "latency_ms": 10.713208001106977,
+          "success": true,
+          "timestamp": 114748.267290666
+        },
+        {
+          "user_id": 2,
+          "request_id": 1,
+          "latency_ms": 0.014874996850267053,
+          "success": true,
+          "timestamp": 114748.2673065
+        },
+        {
+          "user_id": 2,
+          "request_id": 2,
+          "latency_ms": 0.014542005374096334,
+          "success": true,
+          "timestamp": 114748.267321875
+        },
+        {
+          "user_id": 3,
+          "request_id": 0,
+          "latency_ms": 10.767167012090795,
+          "success": true,
+          "timestamp": 114748.267349333
+        },
+        {
+          "user_id": 3,
+          "request_id": 1,
+          "latency_ms": 0.014542005374096334,
+          "success": true,
+          "timestamp": 114748.267364875
+        },
+        {
+          "user_id": 3,
+          "request_id": 2,
+          "latency_ms": 0.01445900124963373,
+          "success": true,
+          "timestamp": 114748.26738025
+        },
+        {
+          "user_id": 4,
+          "request_id": 0,
+          "latency_ms": 10.864292009500787,
+          "success": true,
+          "timestamp": 114748.267451125
+        },
+        {
+          "user_id": 4,
+          "request_id": 1,
+          "latency_ms": 0.019834013073705137,
+          "success": true,
+          "timestamp": 114748.267473041
+        },
+        {
+          "user_id": 4,
+          "request_id": 2,
+          "latency_ms": 0.0159579940373078,
+          "success": true,
+          "timestamp": 114748.267490291
+        }
+      ]
+    },
+    "analyze_patterns": {
+      "tool": "analyze_patterns",
+      "concurrent_users": 5,
+      "requests_per_user": 3,
+      "total_requests": 15,
+      "total_duration_seconds": 0.011509167001349851,
+      "success_rate": 1.0,
+      "requests_per_second": 1303.3089187289338,
+      "latency_stats": {
+        "average_ms": 3.7650222666949653,
+        "p95_ms": 11.310770598356612,
+        "min_ms": 0.009458002750761807,
+        "max_ms": 11.332499998388812
+      },
+      "detailed_results": [
+        {
+          "user_id": 0,
+          "request_id": 0,
+          "latency_ms": 11.215959006221965,
+          "success": true,
+          "timestamp": 114748.279075708
+        },
+        {
+          "user_id": 0,
+          "request_id": 1,
+          "latency_ms": 0.021333005861379206,
+          "success": true,
+          "timestamp": 114748.279099583
+        },
+        {
+          "user_id": 0,
+          "request_id": 2,
+          "latency_ms": 0.011540993000380695,
+          "success": true,
+          "timestamp": 114748.279112041
+        },
+        {
+          "user_id": 1,
+          "request_id": 0,
+          "latency_ms": 11.243667002418078,
+          "success": true,
+          "timestamp": 114748.279138375
+        },
+        {
+          "user_id": 1,
+          "request_id": 1,
+          "latency_ms": 0.010374991688877344,
+          "success": true,
+          "timestamp": 114748.279149875
+        },
+        {
+          "user_id": 1,
+          "request_id": 2,
+          "latency_ms": 0.009709008736535907,
+          "success": true,
+          "timestamp": 114748.279160291
+        },
+        {
+          "user_id": 2,
+          "request_id": 0,
+          "latency_ms": 11.270832997979596,
+          "success": true,
+          "timestamp": 114748.279174833
+        },
+        {
+          "user_id": 2,
+          "request_id": 1,
+          "latency_ms": 0.009874987881630659,
+          "success": true,
+          "timestamp": 114748.279185583
+        },
+        {
+          "user_id": 2,
+          "request_id": 2,
+          "latency_ms": 0.00954199640545994,
+          "success": true,
+          "timestamp": 114748.279195791
+        },
+        {
+          "user_id": 3,
+          "request_id": 0,
+          "latency_ms": 11.301457998342812,
+          "success": true,
+          "timestamp": 114748.279209375
+        },
+        {
+          "user_id": 3,
+          "request_id": 1,
+          "latency_ms": 0.009791998309083283,
+          "success": true,
+          "timestamp": 114748.279220041
+        },
+        {
+          "user_id": 3,
+          "request_id": 2,
+          "latency_ms": 0.009458002750761807,
+          "success": true,
+          "timestamp": 114748.279230208
+        },
+        {
+          "user_id": 4,
+          "request_id": 0,
+          "latency_ms": 11.332499998388812,
+          "success": true,
+          "timestamp": 114748.279243666
+        },
+        {
+          "user_id": 4,
+          "request_id": 1,
+          "latency_ms": 0.009709008736535907,
+          "success": true,
+          "timestamp": 114748.279254166
+        },
+        {
+          "user_id": 4,
+          "request_id": 2,
+          "latency_ms": 0.009583003702573478,
+          "success": true,
+          "timestamp": 114748.279264541
+        }
+      ]
+    },
+    "get_semantic_clusters": {
+      "tool": "get_semantic_clusters",
+      "concurrent_users": 5,
+      "requests_per_user": 3,
+      "total_requests": 15,
+      "total_duration_seconds": 0.01121870799397584,
+      "success_rate": 1.0,
+      "requests_per_second": 1337.0523600449014,
+      "latency_stats": {
+        "average_ms": 3.6070638646682105,
+        "p95_ms": 10.88184179388918,
+        "min_ms": 0.019665996660478413,
+        "max_ms": 10.932707999018021
+      },
+      "detailed_results": [
+        {
+          "user_id": 0,
+          "request_id": 0,
+          "latency_ms": 10.506750011700206,
+          "success": true,
+          "timestamp": 114748.290041166
+        },
+        {
+          "user_id": 0,
+          "request_id": 1,
+          "latency_ms": 0.09183300426229835,
+          "success": true,
+          "timestamp": 114748.290139958
+        },
+        {
+          "user_id": 0,
+          "request_id": 2,
+          "latency_ms": 0.06766700244043022,
+          "success": true,
+          "timestamp": 114748.290210916
+        },
+        {
+          "user_id": 1,
+          "request_id": 0,
+          "latency_ms": 10.68791700527072,
+          "success": true,
+          "timestamp": 114748.29031125
+        },
+        {
+          "user_id": 1,
+          "request_id": 1,
+          "latency_ms": 0.027832997147925198,
+          "success": true,
+          "timestamp": 114748.290341458
+        },
+        {
+          "user_id": 1,
+          "request_id": 2,
+          "latency_ms": 0.024999986635521054,
+          "success": true,
+          "timestamp": 114748.290368166
+        },
+        {
+          "user_id": 2,
+          "request_id": 0,
+          "latency_ms": 10.782375000417233,
+          "success": true,
+          "timestamp": 114748.290415083
+        },
+        {
+          "user_id": 2,
+          "request_id": 1,
+          "latency_ms": 0.02170799416489899,
+          "success": true,
+          "timestamp": 114748.290438583
+        },
+        {
+          "user_id": 2,
+          "request_id": 2,
+          "latency_ms": 0.021415995433926582,
+          "success": true,
+          "timestamp": 114748.290461291
+        },
+        {
+          "user_id": 3,
+          "request_id": 0,
+          "latency_ms": 10.860041991691105,
+          "success": true,
+          "timestamp": 114748.29049725
+        },
+        {
+          "user_id": 3,
+          "request_id": 1,
+          "latency_ms": 0.02041699190158397,
+          "success": true,
+          "timestamp": 114748.290518916
+        },
+        {
+          "user_id": 3,
+          "request_id": 2,
+          "latency_ms": 0.019666986190713942,
+          "success": true,
+          "timestamp": 114748.29053975
+        },
+        {
+          "user_id": 4,
+          "request_id": 0,
+          "latency_ms": 10.932707999018021,
+          "success": true,
+          "timestamp": 114748.290573833
+        },
+        {
+          "user_id": 4,
+          "request_id": 1,
+          "latency_ms": 0.019665996660478413,
+          "success": true,
+          "timestamp": 114748.290595
+        },
+        {
+          "user_id": 4,
+          "request_id": 2,
+          "latency_ms": 0.02095900708809495,
+          "success": true,
+          "timestamp": 114748.290617125
+        }
+      ]
+    },
+    "get_temporal_patterns": {
+      "tool": "get_temporal_patterns",
+      "concurrent_users": 5,
+      "requests_per_user": 3,
+      "total_requests": 15,
+      "total_duration_seconds": 0.012213291003718041,
+      "success_rate": 1.0,
+      "requests_per_second": 1228.1701955217159,
+      "latency_stats": {
+        "average_ms": 3.9061029315538085,
+        "p95_ms": 11.877291397831868,
+        "min_ms": 0.0305419962387532,
+        "max_ms": 12.026333992253058
+      },
+      "detailed_results": [
+        {
+          "user_id": 0,
+          "request_id": 0,
+          "latency_ms": 11.266916990280151,
+          "success": true,
+          "timestamp": 114748.302148208
+        },
+        {
+          "user_id": 0,
+          "request_id": 1,
+          "latency_ms": 0.037834004615433514,
+          "success": true,
+          "timestamp": 114748.302189
+        },
+        {
+          "user_id": 0,
+          "request_id": 2,
+          "latency_ms": 0.03212499723304063,
+          "success": true,
+          "timestamp": 114748.302222708
+        },
+        {
+          "user_id": 1,
+          "request_id": 0,
+          "latency_ms": 11.472541998955421,
+          "success": true,
+          "timestamp": 114748.302365625
+        },
+        {
+          "user_id": 1,
+          "request_id": 1,
+          "latency_ms": 0.03991600533481687,
+          "success": true,
+          "timestamp": 114748.302408083
+        },
+        {
+          "user_id": 1,
+          "request_id": 2,
+          "latency_ms": 0.03316700167488307,
+          "success": true,
+          "timestamp": 114748.302443083
+        },
+        {
+          "user_id": 2,
+          "request_id": 0,
+          "latency_ms": 11.658957999316044,
+          "success": true,
+          "timestamp": 114748.302556625
+        },
+        {
+          "user_id": 2,
+          "request_id": 1,
+          "latency_ms": 0.03245798870921135,
+          "success": true,
+          "timestamp": 114748.302590708
+        },
+        {
+          "user_id": 2,
+          "request_id": 2,
+          "latency_ms": 0.0305419962387532,
+          "success": true,
+          "timestamp": 114748.302622708
+        },
+        {
+          "user_id": 3,
+          "request_id": 0,
+          "latency_ms": 11.813416000222787,
+          "success": true,
+          "timestamp": 114748.302715
+        },
+        {
+          "user_id": 3,
+          "request_id": 1,
+          "latency_ms": 0.03504198684822768,
+          "success": true,
+          "timestamp": 114748.302751916
+        },
+        {
+          "user_id": 3,
+          "request_id": 2,
+          "latency_ms": 0.04408400855027139,
+          "success": true,
+          "timestamp": 114748.302799
+        },
+        {
+          "user_id": 4,
+          "request_id": 0,
+          "latency_ms": 12.026333992253058,
+          "success": true,
+          "timestamp": 114748.302931416
+        },
+        {
+          "user_id": 4,
+          "request_id": 1,
+          "latency_ms": 0.03616699541453272,
+          "success": true,
+          "timestamp": 114748.302969625
+        },
+        {
+          "user_id": 4,
+          "request_id": 2,
+          "latency_ms": 0.032042007660493255,
+          "success": true,
+          "timestamp": 114748.303003333
+        }
+      ]
+    }
+  },
+  "performance_targets": {
+    "find_similar_concepts": {
+      "target_latency_ms": 100,
+      "max_latency_ms": 500,
+      "throughput_rps": 20
+    },
+    "analyze_patterns": {
+      "target_latency_ms": 200,
+      "max_latency_ms": 1000,
+      "throughput_rps": 10
+    },
+    "get_semantic_clusters": {
+      "target_latency_ms": 500,
+      "max_latency_ms": 2000,
+      "throughput_rps": 5
+    },
+    "get_temporal_patterns": {
+      "target_latency_ms": 300,
+      "max_latency_ms": 1500,
+      "throughput_rps": 8
+    },
+    "cache_performance": {
+      "hit_rate_target": 0.8,
+      "speed_improvement_min": 5.0
+    },
+    "memory_usage": {
+      "base_memory_mb": 50,
+      "per_10k_nodes_mb": 1
+    }
+  },
+  "timestamp": "2025-06-10T19:09:34.758073",
+  "performance_summary": {
+    "overall_performance_score": 100,
+    "grade": "A+",
+    "meets_week5_targets": true,
+    "benchmark_timestamp": "2025-06-10T19:09:34.758182",
+    "summary_stats": {
+      "total_tools_tested": 4,
+      "latency_targets_met": 4,
+      "throughput_targets_met": 4,
+      "cache_performance_excellent": true
+    }
+  }
+}

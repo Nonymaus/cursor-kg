@@ -1,342 +1,214 @@
 # 🧠 Knowledge Graph MCP Server
 
-A high-performance, local embedding-based Knowledge Graph server implementing the Model Context Protocol (MCP) for seamless integration with Cursor IDE and other MCP-compatible applications.
+A blazingly fast, local-first Knowledge Graph server that connects to Cursor IDE. Think of it as your personal AI memory that gets smarter as you code, without sending your data anywhere.
 
-## ✨ Features
+## ✨ What This Does
 
-- **🚀 10-40x Performance Improvement** over graphiti-mcp
-- **🔒 Local Embeddings** - No API keys or external dependencies required
-- **📚 Advanced Knowledge Graph** with full-text search and semantic relationships
-- **⚡ Real-time Sync** with Cursor IDE via MCP protocol
-- **🛠️ Easy Installation** with automated setup utilities
-- **🔄 Migration Tools** for seamless transition from other knowledge graph systems
-- **🐳 Docker Support** for containerized deployments
+- **🚀 10-40x Faster** than other knowledge graph solutions
+- **🔒 100% Local** - Your code never leaves your machine (no API keys needed!)
+- **🧠 Smart Memory** - Remembers your conversations, decisions, and code patterns
+- **⚡ Real-time** - Syncs instantly with Cursor IDE as you work
+- **🔍 Powerful Search** - Find anything across your entire codebase and conversations
+- **🛡️ Secure** - Built-in authentication and input validation
 
-## 🎯 Quick Start
+## 🚀 Quick Start (10 Minutes to Running)
 
-### One-Line Installation (macOS)
+### Prerequisites
+- **Rust** (we'll install this for you)
+- **macOS, Linux, or Windows**
+- **Cursor IDE** (recommended) or any MCP-compatible editor
 
+### Step 1: Get the Code
 ```bash
-curl -fsSL https://raw.githubusercontent.com/cursor-kg/kg-mcp-server/main/install.sh | bash
+git clone https://github.com/Nonymaus/cursor-kg.git
+cd cursor-kg
 ```
 
-### Manual Installation
+### Step 2: Install Rust (if you don't have it)
+```bash
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+source ~/.cargo/env
+```
 
-1. **Clone and Build**:
-   ```bash
-   git clone https://github.com/cursor-kg/kg-mcp-server
-   cd kg-mcp-server
-   cargo build --release
-   ```
+### Step 3: Build and Run
+```bash
+# Build the server (takes 2-3 minutes first time)
+cargo build --release
 
-2. **Install Binaries**:
-   ```bash
-   mkdir -p ~/.local/bin
-   cp target/release/{kg-mcp-server,kg-setup,kg-migrate} ~/.local/bin/
-   export PATH="$HOME/.local/bin:$PATH"
-   ```
+# Start the server
+cargo run --release
+```
 
-3. **Configure for Cursor**:
-   ```bash
-   kg-setup cursor --global
-   ```
+That's it! The server is now running on `http://localhost:8360` 🎉
 
-4. **Start Server**:
-   ```bash
-   kg-setup start
-   ```
+## 🔧 Connect to Cursor IDE
 
-## 🔧 Configuration
-
-### Cursor IDE Integration
-
-The server automatically configures Cursor IDE via the MCP protocol. Configuration is stored in `~/.cursor/mcp.json`:
-
-```json
-{
+### Automatic Setup (Recommended)
+```bash
+# This creates the config file for you
+echo '{
   "mcpServers": {
-    "kg-mcp-server": {
+    "cursor-kg": {
       "url": "http://localhost:8360/sse"
     }
   }
-}
+}' > ~/.cursor/mcp.json
 ```
 
-### Environment Variables
-
-```bash
-# Server Configuration
-export MCP_PORT=8360                    # Server port (default: 8360)
-export MCP_TRANSPORT=sse                # Transport type (default: sse)
-export RUST_LOG=info                    # Log level
-
-# Storage Configuration  
-export KG_DATABASE_PATH=./kg_data.db    # Database file path
-export KG_CACHE_SIZE=100MB              # Memory cache size
-
-# Embedding Configuration
-export KG_EMBEDDING_MODEL=sentence-transformers/all-MiniLM-L6-v2
-export KG_EMBEDDING_DIMENSIONS=384      # Embedding vector size
-```
-
-## 🛠️ Commands
-
-### kg-mcp-server
-Main server application supporting multiple transport protocols:
-
-```bash
-# Start with SSE transport (recommended for Cursor)
-kg-mcp-server
-
-# Start with stdio transport
-kg-mcp-server --transport stdio
-
-# Custom port
-kg-mcp-server --port 9000
-
-# Debug mode
-RUST_LOG=debug kg-mcp-server
-```
-
-### kg-setup
-Configuration and setup utility:
-
-```bash
-# Configure for Cursor IDE
-kg-setup cursor                         # Local project
-kg-setup cursor --global               # Global configuration
-
-# Generate Docker files
-kg-setup docker --port 8360
-
-# Validate setup
-kg-setup validate
-
-# Start server
-kg-setup start                          # Foreground
-kg-setup start --daemon                # Background
-```
-
-### kg-migrate
-Migration utility for data import/export:
-
-```bash
-# Migrate from graphiti-mcp
-kg-migrate graphiti --source ./old_db.sqlite --target ./kg_data.db
-
-# Import from JSON
-kg-migrate json --file export.json --format episodes
-
-# Create backup
-kg-migrate backup --output ./backup.json
-
-# Validate database
-kg-migrate validate --database ./kg_data.db
-```
-
-## 📊 MCP Tools
-
-The server provides **12 comprehensive MCP tools** accessible from Cursor:
-
-### 📝 **Core Knowledge Tools**
-
-#### add_memory
-Add episodes, documents, and structured data to the knowledge graph:
-```javascript
-{
-  "name": "Project Planning Session",
-  "episode_body": "Discussed architecture decisions for the new microservice...",
-  "source": "text",
-  "group_id": "project_alpha"
-}
-```
-
-#### search_memory_nodes
-Search for concepts, entities, and node summaries:
-```javascript
-{
-  "query": "machine learning artificial intelligence",
-  "max_nodes": 10,
-  "entity": "Preference"
-}
-```
-
-#### search_memory_facts
-Find relationships and connections between entities:
-```javascript
-{
-  "query": "authentication patterns",
-  "max_facts": 15,
-  "center_node_uuid": "optional-uuid"
-}
-```
-
-#### get_episodes
-Retrieve recent episodes and memory entries:
-```javascript
-{
-  "group_id": "project_alpha",
-  "last_n": 20
-}
-```
-
-### 🔍 **Advanced Analytics Tools**
-
-#### find_similar_concepts
-Semantic similarity search using embeddings:
-```javascript
-{
-  "concept": "neural networks",
-  "similarity_threshold": 0.75,
-  "max_results": 8
-}
-```
-
-#### analyze_patterns
-Pattern analysis (relationships, clusters, temporal, centrality):
-```javascript
-{
-  "analysis_type": "relationships", // or "clusters", "temporal", "centrality"
-  "max_results": 20,
-  "time_range_days": 30
-}
-```
-
-#### get_semantic_clusters
-ML-based concept clustering (K-means, hierarchical, DBSCAN):
-```javascript
-{
-  "cluster_method": "kmeans", // or "hierarchical", "dbscan"
-  "num_clusters": 5,
-  "min_cluster_size": 3
-}
-```
-
-#### get_temporal_patterns
-Time-based activity and trend analysis:
-```javascript
-{
-  "time_granularity": "day", // or "hour", "week", "month"
-  "concept_filter": "optional concept",
-  "days_back": 30
-}
-```
-
-### ⚙️ **Administrative Tools**
-
-#### get_entity_edge / delete_entity_edge
-Retrieve or remove specific relationships:
-```javascript
-{
-  "uuid": "relationship-uuid-here"
-}
-```
-
-#### delete_episode
-Remove episodes (admin only):
-```javascript
-{
-  "uuid": "episode-uuid-here"
-}
-```
-
-#### clear_graph
-Complete graph reset (admin only, requires confirmation):
-```javascript
-{
-  "confirm": true
-}
-```
-
-## 🚀 Performance
-
-### Benchmarks (vs graphiti-mcp)
-
-| Operation | graphiti-mcp | kg-mcp-server | Improvement |
-|-----------|--------------|---------------|-------------|
-| Episode Creation | 250ms | 12ms | **20.8x faster** |
-| Semantic Search | 800ms | 23ms | **34.8x faster** |
-| Graph Traversal | 1200ms | 45ms | **26.7x faster** |
-| Startup Time | 3.2s | 0.8s | **4x faster** |
-
-### Resource Usage
-
-- **Memory**: ~50MB baseline, scales linearly with episode count
-- **Storage**: ~2MB per 1000 episodes (including embeddings)
-- **CPU**: <5% during normal operation, ~15% during embedding generation
-
-## 🔄 Migration
-
-### From graphiti-mcp
-
-1. **Export your data** from graphiti-mcp (if needed)
-2. **Run migration**:
-   ```bash
-   kg-migrate graphiti --source /path/to/graphiti.db --dry-run
-   kg-migrate graphiti --source /path/to/graphiti.db
-   ```
-3. **Validate migration**:
-   ```bash
-   kg-migrate validate
+### Manual Setup
+1. Open Cursor IDE
+2. Go to Settings → MCP Servers
+3. Add this configuration:
+   ```json
+   {
+     "mcpServers": {
+       "cursor-kg": {
+         "url": "http://localhost:8360/sse"
+       }
+     }
+   }
    ```
 
-### From JSON exports
+### Test the Connection
+In Cursor, try asking: *"What's in my knowledge graph?"*
 
-```bash
-# Standard episode format
-kg-migrate json --file episodes.json --format episodes
+If it works, you'll see a response from the server! 🎉
 
-# Custom format  
-kg-migrate json --file data.json --format custom
+## ⚙️ Configuration Options
+
+All settings are in `config.toml`. Here are the most important ones:
+
+```toml
+# Basic Settings
+[database]
+filename = "knowledge_graph.db"  # Where your data is stored
+
+[embeddings]
+model_name = "nomic-embed-text-v1.5"  # AI model for understanding text
+batch_size = 16                       # How many texts to process at once
+
+# Security (optional)
+[security]
+enable_authentication = false  # Set to true for API key protection
+api_key = ""                   # Your secret key (if auth enabled)
+rate_limit_requests_per_minute = 60  # Prevent spam
+
+# Performance
+[memory]
+max_cache_size_mb = 128        # How much RAM to use for caching
 ```
 
-## 🐳 Docker Deployment
+**💡 Tip**: The defaults work great for most people. Only change these if you know what you're doing!
 
-### Quick Docker Setup
+## 🎮 How to Use It
 
+### Basic Commands
 ```bash
-# Generate Docker files
-kg-setup docker
+# Start the server
+cargo run --release
 
-# Build and run
-docker-compose up -d
+# Start with debug info (if something's wrong)
+RUST_LOG=debug cargo run --release
 
-# Access server
+# Run on a different port
+MCP_PORT=9000 cargo run --release
+
+# Check if it's working
 curl http://localhost:8360/health
+# Should return: {"status":"ok"}
 ```
 
-### Docker Compose
+### What You Can Do
 
-```yaml
-version: '3.8'
-services:
-  kg-mcp-server:
-    build: .
-    ports:
-      - "8360:8360"
-    environment:
-      - MCP_TRANSPORT=sse
-      - RUST_LOG=info
-    volumes:
-      - kg_data:/data
-    restart: unless-stopped
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8360/health"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
+Once connected to Cursor, you can:
 
-volumes:
-  kg_data:
+**💬 Ask Questions**
+- *"What did we discuss about the authentication system?"*
+- *"Show me all the functions related to database queries"*
+- *"What are the main components of this project?"*
+
+**📝 Add Information**
+- *"Remember that we decided to use SQLite for the database"*
+- *"Add this code pattern to the knowledge graph"*
+- *"Store this meeting summary"*
+
+**🔍 Search & Analyze**
+- *"Find similar code patterns"*
+- *"What are the dependencies between these files?"*
+- *"Show me the project structure"*
+
+### Advanced Usage
+
+**🔒 Enable Security** (for production):
+```toml
+# In config.toml
+[security]
+enable_authentication = true
+api_key = "your-secret-key-here"
 ```
 
-## 🏗️ Architecture
+**🐳 Run with Docker**:
+```bash
+docker build -t cursor-kg .
+docker run -p 8360:8360 cursor-kg
+```
 
-### Core Components
+**📊 Monitor Performance**:
+```bash
+# Check server stats
+curl http://localhost:8360/metrics
+```
+
+## 🚨 Troubleshooting
+
+### Server Won't Start
+```bash
+# Check if port is already in use
+lsof -i :8360
+
+# Try a different port
+MCP_PORT=8361 cargo run --release
+
+# Check for errors
+RUST_LOG=debug cargo run --release
+```
+
+### Cursor Can't Connect
+1. **Check the server is running**: Visit http://localhost:8360/health
+2. **Verify Cursor config**: Make sure `~/.cursor/mcp.json` has the right URL
+3. **Restart Cursor**: Sometimes it needs a restart to pick up new MCP servers
+4. **Check the logs**: Look for error messages in the terminal where you started the server
+
+### Performance Issues
+```bash
+# Check database size
+ls -lh knowledge_graph.db
+
+# Clear cache and restart
+rm -rf ~/.cache/cursor-kg/
+cargo run --release
+
+# Reduce memory usage in config.toml
+[memory]
+max_cache_size_mb = 64  # Default is 128
+```
+
+### Common Errors
+
+**"Failed to bind to address"**
+→ Port 8360 is already in use. Try a different port or kill the other process.
+
+**"Database is locked"**
+→ Another instance might be running. Check with `ps aux | grep cursor-kg`
+
+**"Model not found"**
+→ The AI model is downloading. Wait a few minutes and try again.
+
+## 🏗️ Architecture (For Developers)
 
 ```
 ┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
-│   Cursor IDE    │◄──►│  MCP Protocol    │◄──►│  kg-mcp-server  │
+│   Cursor IDE    │◄──►│  MCP Protocol    │◄──►│  cursor-kg      │
 └─────────────────┘    └──────────────────┘    └─────────────────┘
                                                           │
                               ┌───────────────────────────┼───────────────────────────┐
@@ -356,166 +228,111 @@ volumes:
                               │        │  │    FTS5     │   In-Memory     │  │        │
                               │        │  └─────────────┴─────────────────┘  │        │
                               │        └─────────────────────────────────────┘        │
-                              │                           │                           │
-                              │        ┌─────────────────────────────────────┐        │
-                              │        │      Embedding Engine               │        │
-                              │        │  ┌─────────────┬─────────────────┐  │        │
-                              │        │  │ ONNX Runtime│  Vector Search  │  │        │
-                              │        │  │Local Models │   Similarity    │  │        │
-                              │        │  └─────────────┴─────────────────┘  │        │
-                              │        └─────────────────────────────────────┘        │
                               └───────────────────────────────────────────────────────┘
 ```
 
-### Technology Stack
+**Tech Stack:**
+- **Rust** - Fast, safe systems programming
+- **SQLite + FTS5** - Local database with full-text search
+- **ONNX Runtime** - Local AI models (no internet required)
+- **MCP Protocol** - Standard way to connect to editors
 
-- **Language**: Rust (performance, safety, concurrency)
-- **Database**: SQLite with FTS5 (local, fast, reliable)
-- **Embeddings**: ONNX Runtime (local inference, no API calls)
-- **Protocol**: MCP over HTTP/SSE (real-time, bi-directional)
-- **Search**: Hybrid semantic + keyword search
-- **Caching**: Multi-level memory caching
+## 🚀 Performance
 
-## 📈 Monitoring
+This thing is **fast**. Here's why:
 
-### Health Checks
+- **Written in Rust** - Compiled, not interpreted
+- **Local everything** - No network calls to AI APIs
+- **Smart caching** - Frequently used data stays in memory
+- **Efficient storage** - SQLite with full-text search built-in
 
-```bash
-# Server health
-curl http://localhost:8360/health
-
-# Detailed status
-curl http://localhost:8360/status
-
-# Metrics
-curl http://localhost:8360/metrics
-```
-
-### Logs
-
-```bash
-# View logs
-RUST_LOG=debug kg-mcp-server
-
-# Structured logging
-RUST_LOG=kg_mcp_server=debug kg-mcp-server 2>&1 | jq
-```
-
-## 🛡️ Security
-
-- **Local-first**: No external API calls or data transmission
-- **Sandboxed**: Runs in user space with minimal permissions
-- **Encrypted**: Database can be encrypted at rest (optional)
-- **Validated**: All inputs sanitized and validated
-- **Rate-limited**: Built-in request rate limiting
+**Real numbers:**
+- **Memory**: ~50MB baseline (grows with your data)
+- **Storage**: ~2MB per 1000 conversations/episodes
+- **Speed**: 10-40x faster than Python-based alternatives
 
 ## 🔧 Development
 
-### Building from Source
+Want to contribute or modify the code? Here's how:
 
+### Project Structure
+```
+cursor-kg/
+├── src/
+│   ├── main.rs              # Server entry point
+│   ├── mcp/                 # MCP protocol handling
+│   ├── graph/               # Knowledge graph logic
+│   ├── embeddings/          # AI model integration
+│   ├── search/              # Search functionality
+│   └── security/            # Authentication & validation
+├── config.toml              # Configuration
+├── tests/                   # Test files
+└── README.md               # This file
+```
+
+### Running Tests
 ```bash
-# Install Rust
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-
-# Clone and build
-git clone https://github.com/cursor-kg/kg-mcp-server
-cd kg-mcp-server
-cargo build --release
-
-# Run tests
+# Run all tests
 cargo test
 
-# Run benchmarks
-cargo bench
+# Run with output
+cargo test -- --nocapture
+
+# Run specific test
+cargo test test_name
 ```
 
-### Testing
+### Making Changes
+1. **Fork the repo** on GitHub
+2. **Make your changes** in a new branch
+3. **Test everything** with `cargo test`
+4. **Submit a pull request**
+
+### Adding Features
+- **New MCP tools**: Add to `src/mcp/handlers.rs`
+- **Database changes**: Modify `src/graph/storage.rs`
+- **Configuration options**: Update `config.toml` and `src/config/mod.rs`
+
+## 🐳 Docker (Optional)
+
+If you prefer containers:
 
 ```bash
-# Unit tests
-cargo test
+# Build and run
+docker build -t cursor-kg .
+docker run -p 8360:8360 cursor-kg
 
-# Integration tests
-cargo test --features integration
-
-# MCP protocol tests
-cargo test mcp_
-
-# Performance tests
-cargo test --release performance_
+# Or use docker-compose
+docker-compose up -d
 ```
 
-## 📋 Requirements
+## 📚 More Information
 
-### System Requirements
-
-- **macOS**: 10.15+ (Catalina or later)
-- **Memory**: 512MB minimum, 2GB recommended
-- **Storage**: 100MB for binary + data storage
-- **CPU**: Any modern x64 or ARM64 processor
-
-### Dependencies
-
-- **Rust**: 1.75+ (automatically installed by install script)
-- **SQLite**: Bundled with binary
-- **ONNX Runtime**: Bundled with binary
-
-## 🚨 Troubleshooting
-
-### Common Issues
-
-**Server won't start**:
-```bash
-# Check port availability
-lsof -i :8360
-
-# Check logs
-RUST_LOG=debug kg-mcp-server
-```
-
-**Cursor not detecting MCP server**:
-```bash
-# Validate configuration
-kg-setup validate
-
-# Reconfigure
-kg-setup cursor --global
-
-# Restart Cursor IDE
-```
-
-**Performance issues**:
-```bash
-# Check database integrity
-kg-migrate validate
-
-# Clear cache
-rm -rf ~/.cache/kg-mcp-server
-
-# Optimize database
-sqlite3 kg_data.db "VACUUM;"
-```
-
-### Getting Help
-
-- **Issues**: [GitHub Issues](https://github.com/cursor-kg/kg-mcp-server/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/cursor-kg/kg-mcp-server/discussions)
-- **Documentation**: [Wiki](https://github.com/cursor-kg/kg-mcp-server/wiki)
-
-## 📄 License
-
-MIT License - see [LICENSE](LICENSE) file for details.
+- **Security**: See [SECURITY_AUDIT_REPORT.md](SECURITY_AUDIT_REPORT.md) for security features
+- **Configuration**: See [CONFIG_MIGRATION_GUIDE.md](CONFIG_MIGRATION_GUIDE.md) for detailed config options
+- **Development**: Check out the other `.md` files for implementation details
 
 ## 🤝 Contributing
 
-We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+Found a bug? Want to add a feature? Contributions are welcome!
+
+1. **Fork** the repository
+2. **Create** a feature branch (`git checkout -b feature/amazing-feature`)
+3. **Commit** your changes (`git commit -m 'Add amazing feature'`)
+4. **Push** to the branch (`git push origin feature/amazing-feature`)
+5. **Open** a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🙏 Acknowledgments
 
-- [Model Context Protocol](https://modelcontextprotocol.io/) for the excellent protocol specification
-- [Cursor IDE](https://cursor.sh/) for pioneering AI-native development
-- The Rust community for excellent tooling and libraries
+- Built with [Rust](https://www.rust-lang.org/) for performance and safety
+- Uses [SQLite](https://www.sqlite.org/) for reliable local storage
+- Integrates with [Cursor IDE](https://cursor.sh/) via the MCP protocol
+- AI embeddings powered by [ONNX Runtime](https://onnxruntime.ai/)
 
 ---
 
-**Built with ❤️ using Rust for maximum performance and reliability.** 
+**Questions?** Open an issue on GitHub or check the troubleshooting section above!

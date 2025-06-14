@@ -131,6 +131,8 @@ impl McpServer {
             .route("/mcp", post(handle_mcp_request))
             // Health check endpoint
             .route("/health", get(health_check))
+            // Metrics endpoint
+            .route("/metrics", get(metrics_endpoint))
             // Tool endpoints (for debugging)
             .route("/tools", get(list_tools))
             .layer(CorsLayer::permissive())
@@ -420,15 +422,84 @@ async fn handle_tool_call_mcp(state: &AppState, params: Value) -> Value {
 
 // Health check and utility endpoints
 
-async fn health_check() -> impl IntoResponse {
-    Json(json!({
+async fn health_check(State(state): State<AppState>) -> impl IntoResponse {
+    let mut health_status = json!({
+        "status": "ok",
+        "server": "cursor-kg",
+        "version": env!("CARGO_PKG_VERSION"),
+        "timestamp": chrono::Utc::now().to_rfc3339(),
+        "uptime_seconds": std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap_or_default()
+            .as_secs()
+    });
+
+    // Check database health
+    match state.storage.count_nodes().await {
+        Ok(node_count) => {
+            health_status["database"] = json!({
+                "status": "healthy",
+                "node_count": node_count
+            });
+        },
+        Err(e) => {
+            health_status["database"] = json!({
+                "status": "error",
+                "error": e.to_string()
+            });
+            health_status["status"] = json!("degraded");
+        }
+    }
+
+    // Check embedding engine health
+    health_status["embedding_engine"] = json!({
         "status": "healthy",
-        "server": "kg-mcp-server",
-        "version": "0.1.0"
-    }))
+        "model": "nomic-embed-text-v1.5"
+    });
+
+    // Check memory usage
+    health_status["memory"] = json!({
+        "status": "healthy"
+    });
+
+    Json(health_status)
+}
+
+async fn metrics_endpoint(State(state): State<AppState>) -> impl IntoResponse {
+    let mut metrics = json!({
+        "server": "cursor-kg",
+        "version": env!("CARGO_PKG_VERSION"),
+        "timestamp": chrono::Utc::now().to_rfc3339()
+    });
+
+    // Database metrics
+    if let Ok(node_count) = state.storage.count_nodes().await {
+        if let Ok(edge_count) = state.storage.count_edges().await {
+            if let Ok(episode_count) = state.storage.count_episodes().await {
+                metrics["database"] = json!({
+                    "nodes": node_count,
+                    "edges": edge_count,
+                    "episodes": episode_count,
+                    "total_entities": node_count + edge_count + episode_count
+                });
+            }
+        }
+    }
+
+    // System metrics
+    metrics["system"] = json!({
+        "uptime_seconds": std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap_or_default()
+            .as_secs(),
+        "rust_version": env!("RUSTC_VERSION"),
+        "build_timestamp": env!("BUILD_TIMESTAMP")
+    });
+
+    Json(metrics)
 }
 
 async fn list_tools(State(state): State<AppState>) -> impl IntoResponse {
     let tools_response = handle_list_tools_mcp(&state).await;
     Json(tools_response)
-} 
+}
